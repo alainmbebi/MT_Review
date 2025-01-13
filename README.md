@@ -1,6 +1,6 @@
 # MT_Review
 
-R functions for the comparative analysis of: Advances in multi-trait genomic prediction approaches: Classification, comparative analysis, and perspectives, as described in ( Mbebi A. et al. 2025).
+R functions for the comparative analysis of: Advances in multi-trait genomic prediction approaches: Classification, comparative analysis, and perspectives, as described in [( Mbebi A. et al. 2025)]( https://doi.org/10.1).
 
 1.    The folder code contains the following R scripts:
 
