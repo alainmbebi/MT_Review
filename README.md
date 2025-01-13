@@ -4,15 +4,15 @@ R functions for the comparative analysis of: Advances in multi-trait genomic pre
 
 1.    The folder code contains the following R scripts:
 
-    L21_featselect.R which uses the model proposed in (Nie et al. 2010) to implement GS under the equation-norm regularized multivariate regression
+    Genotype_BLUP_Metabolites.R which uses the replicates to compute the BLUP for each metabolite trait
 
-    CV_L21_featselect.R which selects the tuning parameter for L21_featselect.R using K-folds cross-validation
+    Focal_Trait_Heritability.R which compute the heritability for focal traits
 
     Ridge_estim.R compute the Ridge estimate
 
-    CV_Ridge.R selects the tuning parameter for Ridge_estim.R using K-folds cross-validation
-
-    L21_joint_estim.R performs GS using the equation-norm regularized multivariate regression that jointly estimates the regression coefficients and precision matrix
+    Qr_Reorthogonalization.R for re-othogonalization of QR decomposition
+    
+    Plink_steps.PNG contains the preprocessing 
 
     CV_L21_joint_estim.R selects the tuning parameters for L21_joint_estim.R using K-folds cross-validation
 
