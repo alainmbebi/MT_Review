@@ -1,4 +1,5 @@
 library(BGLR)
+library(corpcor)
 library(openxlsx)
 library(data.table)
 
@@ -24,7 +25,7 @@ X <- fread("../Supplementary File 1_markers.txt")
 colnames(X)[1] <- "Marker"
 X <- X[X$Marker %in% target_accessions, -c(1)]
 
-### Setting up Cross Validation approach 10 (all populations mixed)
+### Setting up Cross Validation approach 10
 ### Define folds
 k_folds <- 5
 
@@ -50,18 +51,31 @@ for(i in 1:k_folds){
   true_fold_test_list[[i]] <- Y.TST
   
   ### Regressing over the markers for the training accessions
-  ETA <- list(list(X=as.matrix(X[-testIndexes,]), model='BRR'))
+  ETA <- list(list(X=X[-testIndexes,], model='BayesB'))
   
-  fm <- Multitrait(y=as.matrix(Y.TRN), ETA=ETA, nIter=itermax, burnIn=burning, verbose = TRUE)
+  ### Prediction using eigenvectors
+  SVD=svd(Y.TRN)
+  U=SVD$u
+  D=diag(SVD$d)
+  V=SVD$v
+  nr_components <- ncol(U)
   
-  marker_effects <- fm$ETA[[1]]$beta
+  # This will store the coefficients for each regressor be that eigenvectors or traits
+  B <- matrix(nrow=ncol(X), ncol=nr_components)
   
+  for(l in 1:nr_components){
+    sprintf("Current trait for this fold: %s", l)
+    fm <- BGLR(y=U[,l], ETA=ETA, nIter=itermax, burnIn=burning, verbose=TRUE)
+    B[,l] <- fm$ETA[[1]]$b
+  }
+  
+  # Rotate back the output
+  BETA <- B%*%D%*%t(V)
   X.TST <- as.matrix(X.TST)
-  Y.PRED <-  X.TST%*%marker_effects
-  
+  Y.PRED <- X.TST%*%BETA
   prediction_list[[i]] <- Y.PRED
 }
 
-saveRDS(prediction_list, file="prediction_BRR_A_Indica_Indica.RData")
+saveRDS(prediction_list, file="prediction_svd_A_Indica_Indica.RData")
 
-saveRDS(true_fold_test_list, file="true_fold_test_list_BRR_A_Indica_Indica.RData")
+saveRDS(true_fold_test_list, file="true_fold_test_list_svd_A_Indica_Indica.RData")

@@ -1,11 +1,12 @@
 library(BGLR)
+library(corpcor)
 library(openxlsx)
 library(data.table)
 
 rm(list=ls()) 
 
 ### Loading trait matrix
-Y <- read.xlsx("../Supplementary Table 3_Trait_Matrix.xlsx", rowNames = TRUE)
+Y <- read.xlsx("../Supplementary Table 3_Trait_Matrix.xlsx.xlsx", rowNames = TRUE)
 
 ### CV A Indica-Indica
 Y <- Y[Y$Population == "Indica",  -c(1)]
@@ -24,7 +25,7 @@ X <- fread("../Supplementary File 1_markers.txt")
 colnames(X)[1] <- "Marker"
 X <- X[X$Marker %in% target_accessions, -c(1)]
 
-### Setting up Cross Validation approach 10 (all populations mixed)
+### Setting up Cross Validation approach 10
 ### Define folds
 k_folds <- 5
 
@@ -49,19 +50,24 @@ for(i in 1:k_folds){
   X.TST <- X[testIndexes]
   true_fold_test_list[[i]] <- Y.TST
   
-  ### Regressing over the markers for the training accessions
-  ETA <- list(list(X=as.matrix(X[-testIndexes,]), model='BRR'))
-  
-  fm <- Multitrait(y=as.matrix(Y.TRN), ETA=ETA, nIter=itermax, burnIn=burning, verbose = TRUE)
-  
-  marker_effects <- fm$ETA[[1]]$beta
-  
+  # This will store the results per trait as vector columns
+  Y.PRED <- matrix(nrow=nrow(X.TST), ncol=n_traits)
   X.TST <- as.matrix(X.TST)
-  Y.PRED <-  X.TST%*%marker_effects
   
+  # ETA
+  ETA <- list(list(X=X[-testIndexes,], model='BRR'))
+  
+  for(l in 1:n_traits){
+    sprintf("Current trait for this fold: %s", l)
+    fm <- BGLR(y=Y.TRN[,l], ETA=ETA, nIter=itermax, burnIn=burning, verbose=TRUE)
+    
+    yHat <- fm$mu + as.vector(X.TST%*%fm$ETA[[1]]$b)
+    
+    Y.PRED[,l] <- yHat
+  }
   prediction_list[[i]] <- Y.PRED
 }
 
-saveRDS(prediction_list, file="prediction_BRR_A_Indica_Indica.RData")
+saveRDS(prediction_list, file="prediction_unitrait_A_Indica_Indica.RData")
 
-saveRDS(true_fold_test_list, file="true_fold_test_list_BRR_A_Indica_Indica.RData")
+saveRDS(true_fold_test_list, file="true_fold_test_list_unitrait_A_Indica_Indica.RData")
