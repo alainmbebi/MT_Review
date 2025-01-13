@@ -66,10 +66,7 @@ for(i in  1:c_met){
   blups[,i] <- blup_ind
 }
 
-# Saving raw blups
-write.xlsx(blups, "C:/Users/facum/OneDrive/Desktop/GWAS/Dataset/BLUPs.xlsx")
-
-# Scaling blups
+# Scaling blups min max
 blups_scaled <- apply(blups, 2, function(x) {
   (x-min(x))/(max(x)-min(x))
 }
@@ -77,4 +74,3 @@ blups_scaled <- apply(blups, 2, function(x) {
 
 blups_scaled <- blups_scaled[,colSums(is.na(blups_scaled))<nrow(blups_scaled)]
 blups_scaled <- data.frame(blups_scaled)
-write.xlsx(blups_scaled, "/dir/scaled_BLUPs.xlsx")
