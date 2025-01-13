@@ -289,7 +289,3 @@ for(i in 1:k_folds){
   
   prediction_list[[i]] <- Yhat_cmor
 }
-
-saveRDS(prediction_list, file="prediction_mor_A_Indica_Indica.RData")
-
-saveRDS(true_fold_test_list, file="true_fold_test_list_mor_A_Indica_Indica.RData")
