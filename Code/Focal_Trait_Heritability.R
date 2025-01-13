@@ -30,5 +30,3 @@ for(i in 1:12){
   h2_df[1, i] <- heritability
 }
 
-write.xlsx(as.data.frame(h2_df), "Focal_Traits_h2.xlsx")
-
