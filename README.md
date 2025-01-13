@@ -2,7 +2,7 @@
 
 R functions for the comparative analysis of: Advances in multi-trait genomic prediction approaches: Classification, comparative analysis, and perspectives, as described in ( Mbebi A. et al. 2025).
 
-    The folder code contains the following R scripts:
+1.    The folder code contains the following R scripts:
 
     L21_featselect.R which uses the model proposed in (Nie et al. 2010) to implement GS under the equation-norm regularized multivariate regression
 
@@ -20,19 +20,11 @@ R functions for the comparative analysis of: Advances in multi-trait genomic pre
 
     CV_MOR.R selects the tuning parameters for MOR.R using K-folds CV
 
-    The folder Simulation contains data sets used for simulation. Files are to be read as in the examples below:
-
-    listX_n50p100s30rho.1 (list of the predictor matrices X for all 20 replicates, with n=50, p=100, s=30 and the AR(1) parameter equation)
-
-    listY_n50p100s30rho.1 (list of the response matrices Y for all 20 replicates, with n=50, p=100, s=30 and the AR(1) parameter equation)
-
-    trueB_n50p100s30rho.9 (list of the true regression coefficient matrices B for all 20 replicates, with n=50, p=100, s=30 and the AR(1) parameter equation)
-
-    The folder data contains all the data used in the article.
+    2.    The folder data contains all the data used in the article.
 
     Notes
 
     Although the codes here were tested on Ubuntu 22.04.5 LTS using R (version 4.2.2), they can run under any Linux or Windows OS distributions, as long as all the required packages are compatible with the desired R version.
 
 
-    Licence: GPL-3
+    3.    Licence: GPL-3
