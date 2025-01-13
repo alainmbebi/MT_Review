@@ -14,10 +14,7 @@ R functions for the comparative analysis of: Advances in multi-trait genomic pre
     .    MT_DL_A_Indica_Indica.R which implements the MT deep learning (MT-DL) for the scenario where the model is trained on Indica to predict Indica
     .    MT_BMORS_A_Indica_Indica.R which implements the MT Bayesian multi-output regressor stacking (MT-BMORS) for the scenario where the model is trained on Indica to predict Indica
 2.    The folder data contains all the data used in the article.
-
     Notes
-
     Although the codes here were tested on Ubuntu 22.04.5 LTS using R (version 4.2.2), they can run under any Linux or Windows OS distributions, as long as all the required packages are compatible with the desired R version.
-
 
     3.    Licence: GPL-3
