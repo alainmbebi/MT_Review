@@ -75,7 +75,3 @@ for(i in 1:k_folds){
   Y.PRED <- X.TST%*%BETA
   prediction_list[[i]] <- Y.PRED
 }
-
-saveRDS(prediction_list, file="prediction_svd_A_Indica_Indica.RData")
-
-saveRDS(true_fold_test_list, file="true_fold_test_list_svd_A_Indica_Indica.RData")
