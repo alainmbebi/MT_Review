@@ -21,4 +21,4 @@ R functions for the comparative analysis of: Advances in multi-trait genomic pre
 *  Although the codes here were tested on Ubuntu 22.04.5 LTS using R (version 4.2.2), they can run under any Linux or Windows OS distributions, as long as all the required packages are compatible with the desired R version.
 *  The following abbreviations are used, ST: Single-trait MT: Multi-trait, DL: Deep learning, SVD: Singular value decomposition, GBLUP: genomic best linear unbiased prediction, PLS: partial least square regression, MOR: Multi output regression, BMORS: Bayesian multi-output regressor stacking, CVA: Cross validation A (see manuscript for details).
 
-    3.    Licence: GPL-3
+5.  Licence: GPL-3
