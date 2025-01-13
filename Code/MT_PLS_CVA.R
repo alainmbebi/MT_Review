@@ -78,7 +78,3 @@ for(i in seq_along(folds)){
   
   prediction_list[[i]] <- predictions # For this fold
 }
-
-saveRDS(prediction_list, file="prediction_pls_A_Indica_Indica.RData")
-
-saveRDS(true_fold_test_list, file="true_fold_test_list_pls_A_Indica_Indica.RData")
