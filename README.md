@@ -4,22 +4,16 @@ R functions for the comparative analysis of: Advances in multi-trait genomic pre
 
 1.    The folder code contains the following R scripts:
 
-    Genotype_BLUP_Metabolites.R which computes the BLUP for each metabolite trait
-
-    Focal_Trait_Heritability.R which computes the heritability for focal traits
-
-    Ridge_estim.R compute the Ridge estimate
-
-    Qr_Reorthogonalization.R for re-othogonalization of QR decomposition
-    
-    Plink_steps.PNG contains the preprocessing steps used in Plink 
-
-    ST_GBLUP_A_Indica_Indica.R which implements the single-trait genomic best linear unbiased prediction (ST-GBLUP) for the scenario where the model is trained on Indica to predict Indica
-    MT_SVD_A_Indica_Indica.R which implements the MT Singular value decomposition (MT-SVD) for the scenario where the model is trained on Indica to predict Indica
-    MT_PLS_A_Indica_Indica.R which implements the MT partial least square regression (MT-PLS) for the scenario where the model is trained on Indica to predict Indica
-    MT_MOR_A_Indica_Indica.R which implements the MT Multi output regression (MT-MOR) for the scenario where the model is trained on Indica to predict Indica
-    MT_DL_A_Indica_Indica.R which implements the MT deep learning (MT-DL) for the scenario where the model is trained on Indica to predict Indica
-    MT_BMORS_A_Indica_Indica.R which implements the MT Bayesian multi-output regressor stacking (MT-BMORS) for the scenario where the model is trained on Indica to predict Indica
+    .    Genotype_BLUP_Metabolites.R which computes the BLUP for each metabolite trait
+    .    Focal_Trait_Heritability.R which computes the heritability for focal traits
+    .    Ridge_estim.R compute the Ridge estimate
+    .    Qr_Reorthogonalization.R for re-othogonalization of QR decomposition
+    .    ST_GBLUP_A_Indica_Indica.R which implements the single-trait genomic best linear unbiased prediction (ST-GBLUP) for the scenario where the model is trained on Indica to predict Indica
+    .    MT_SVD_A_Indica_Indica.R which implements the MT Singular value decomposition (MT-SVD) for the scenario where the model is trained on Indica to predict Indica
+    .    MT_PLS_A_Indica_Indica.R which implements the MT partial least square regression (MT-PLS) for the scenario where the model is trained on Indica to predict Indica
+    .    MT_MOR_A_Indica_Indica.R which implements the MT Multi output regression (MT-MOR) for the scenario where the model is trained on Indica to predict Indica
+    .    MT_DL_A_Indica_Indica.R which implements the MT deep learning (MT-DL) for the scenario where the model is trained on Indica to predict Indica
+    .    MT_BMORS_A_Indica_Indica.R which implements the MT Bayesian multi-output regressor stacking (MT-BMORS) for the scenario where the model is trained on Indica to predict Indica
 
     2.    The folder data contains all the data used in the article.
 
