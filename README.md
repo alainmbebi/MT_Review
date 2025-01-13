@@ -3,7 +3,6 @@
 R functions for the comparative analysis of: Advances in multi-trait genomic prediction approaches: Classification, comparative analysis, and perspectives, as described in [( Mbebi A. et al. 2025)]( https://doi.org/10.1).
 
 1.    The folder code contains the following R scripts:
-  
     .    Genotype_BLUP_Metabolites.R which computes the BLUP for each metabolite trait
     .    Focal_Trait_Heritability.R which computes the heritability for focal traits
     .    Ridge_estim.R compute the Ridge estimate
@@ -14,7 +13,7 @@ R functions for the comparative analysis of: Advances in multi-trait genomic pre
     .    MT_MOR_A_Indica_Indica.R which implements the MT Multi output regression (MT-MOR) for the scenario where the model is trained on Indica to predict Indica
     .    MT_DL_A_Indica_Indica.R which implements the MT deep learning (MT-DL) for the scenario where the model is trained on Indica to predict Indica
     .    MT_BMORS_A_Indica_Indica.R which implements the MT Bayesian multi-output regressor stacking (MT-BMORS) for the scenario where the model is trained on Indica to predict Indica
-3.    The folder data contains all the data used in the article.
+2.    The folder data contains all the data used in the article.
 
     Notes
 
